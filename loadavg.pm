@@ -88,11 +88,11 @@ Linux::loadavg - get system load averages
 =head1 DESCRIPTION
   The Linux::loadavg module provides simple interface to Linux getloadavg(3C) library
   function, which returns the number of processes in the  system run queue averaged over 
-  various periods of time. Up to 3 (LOADAVG_NSTATS) samples are retrieved and returned 
-  to successive elements of the output array. The  system imposes a maximum of 3
-  samples, representing averages over the last 1,  5,  and  15 minutes, respectively.
-  The LOADAVG_1MIN, LOADAVG_5MIN, and LOADAVG_15MIN  indices, defined  in <sys/loadavg.h>, 
-  can be used to extract the data from the appropriate element of the output array:
+  various periods of time. Up to 3 samples are retrieved and returned to successive 
+  elements of the output array. The system imposes a maximum of 3 samples, representing 
+  averages over the last 1, 5 and 15 minutes, respectively.
+  The LOADAVG_1MIN, LOADAVG_5MIN, and LOADAVG_15MIN indices can be used to extract 
+  the data from the appropriate element of the output array:
 
   # get the first two load averages
 
@@ -111,7 +111,7 @@ Linux::loadavg - get system load averages
 
 =head1 AUTHOR
 
-Alexander Golomshtok, E<lt>golomshtok_alexander@jpmorgan.comE<gt>
+Niels van Dijke, E<lt>CpanDotOrgAtPerlboyDotNetE<gt>
 
 =head1 SEE ALSO
 

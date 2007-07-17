@@ -5,3 +5,7 @@ Revision history for Perl extension Linux::loadavg.
 
 0.02  Tue Jul 17 15:30:00 2007
 	- Updated readme file with correct copyright credentials
+
+0.03  Tue Jul 17 18:00:00 2007
+	- Updated .pm file with right name and e-mail and clean up of
+	header file reference.
