@@ -1,4 +1,4 @@
-Solaris/loadavg version 0.01
+Linux::loadavg version 0.02
 ============================
 
 The README is used to introduce the module and provide instructions on
@@ -29,5 +29,5 @@ COPYRIGHT AND LICENCE
 
 Put the correct copyright and licence information here.
 
-Copyright (C) 2003, Alexander Golomshtok (Cronos Systems Inc.)
+Copyright (C) 2007, Niels van Dijke, http://perlboy.net
 
