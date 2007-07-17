@@ -1,0 +1,5 @@
+Revision history for Perl extension Linux::loadavg.
+
+0.01  Tue Jul 17 14:41:03 2003
+	- original version; based on Solaris::loadavg 0.01
+
