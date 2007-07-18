@@ -32,39 +32,11 @@ our @EXPORT = qw(
    LOADAVG_5MIN
    LOADAVG_15MIN
 );
-our $VERSION = '0.02';
+our $VERSION = '0.04';
 
-sub AUTOLOAD {
-    # This AUTOLOAD is used to 'autoload' constants from the constant()
-    # XS function.  If a constant is not found then control is passed
-    # to the AUTOLOAD in AutoLoader.
-
-    my $constname;
-    our $AUTOLOAD;
-    ($constname = $AUTOLOAD) =~ s/.*:://;
-    croak "& not defined" if $constname eq 'constant';
-    my $val = constant($constname, @_ ? $_[0] : 0);
-    if ($! != 0) {
-	if ($! =~ /Invalid/ || $!{EINVAL}) {
-	    $AutoLoader::AUTOLOAD = $AUTOLOAD;
-	    goto &AutoLoader::AUTOLOAD;
-	}
-	else {
-	    croak "Your vendor has not defined Linux::loadavg macro $constname";
-	}
-    }
-    {
-	no strict 'refs';
-	# Fixed between 5.005_53 and 5.005_61
-	if ($] >= 5.00561) {
-	    *$AUTOLOAD = sub { $val };
-	}
-	else {
-	    *$AUTOLOAD = sub { $val };
-	}
-    }
-    goto &$AUTOLOAD;
-}
+use constant LOADAVG_1MIN => 0;
+use constant LOADAVG_5MIN => 1;
+use constant LOADAVG_15MIN => 2;
 
 bootstrap Linux::loadavg $VERSION;
 
@@ -72,11 +44,10 @@ bootstrap Linux::loadavg $VERSION;
 
 1;
 __END__
-# Below is stub documentation for your module. You better edit it!
 
 =head1 NAME
 
-Linux::loadavg - get system load averages
+Linux::loadavg - Get system load averages (via getloadavg(3C) system call)
 
 =head1 SYNOPSIS
 
@@ -86,13 +57,38 @@ Linux::loadavg - get system load averages
   printf "load average: %f %f %f\n", @avgs;
   
 =head1 DESCRIPTION
-  The Linux::loadavg module provides simple interface to Linux getloadavg(3C) library
-  function, which returns the number of processes in the  system run queue averaged over 
-  various periods of time. Up to 3 samples are retrieved and returned to successive 
-  elements of the output array. The system imposes a maximum of 3 samples, representing 
-  averages over the last 1, 5 and 15 minutes, respectively.
-  The LOADAVG_1MIN, LOADAVG_5MIN, and LOADAVG_15MIN indices can be used to extract 
-  the data from the appropriate element of the output array:
+
+The Linux::loadavg module provides simple interface to Linux getloadavg(3C) library
+function, which returns the number of processes in the  system run queue averaged over 
+various periods of time. Up to 3 samples are retrieved and returned to successive 
+elements of the output array. The system imposes a maximum of 3 samples, representing 
+averages over the last 1, 5 and 15 minutes, respectively.
+
+The LOADAVG_1MIN, LOADAVG_5MIN, and LOADAVG_15MIN indices can be used to extract 
+the data from the appropriate element of the output array:
+
+When called without an argument, the loadavg() function returns all three load averages.
+
+=head1 EXPORT
+
+=over
+
+=item loadavg	
+
+=item LOADAVG_1MIN
+
+=item LOADAVG_5MIN
+
+=item LOADAVG_15MIN
+
+=back
+
+=head1 EXAMPLE
+
+  use strict;
+
+  # Autodetect Linux::loadavg or Solaris::loadavg
+  die $@ if eval sprintf('use %s::loadavg qw(loadavg)', ucfirst $^O) || $@;
 
   # get the first two load averages
 
@@ -100,21 +96,17 @@ Linux::loadavg - get system load averages
   printf "first load avg (1min): %f\n", @avgs[LOADAVG_1MIN];
   printf "second load avg (5min): %f\n", @avgs[LOADAVG_5MIN];
 
-  When called without an argument, the loadavg() function returns all three 
-  load averages.
-
-=head2 EXPORT
-   loadavg	
-   LOADAVG_1MIN
-   LOADAVG_5MIN
-   LOADAVG_15MIN
-
 =head1 AUTHOR
 
 Niels van Dijke, E<lt>CpanDotOrgAtPerlboyDotNetE<gt>
 
+=head2 CREDITS
+
+The Linux::loadavg is nearly one on one based on Solaris::loadavg. Therefore credits 
+should go to: Alexander Golomshtok (http://search.cpan.org/~agolomsh/)
+
 =head1 SEE ALSO
 
-L<perl>,L<getloadavg(3C)>
+L<perl>,L<getloadavg(3C)>,L<Solaris::loadavg>
 
 =cut

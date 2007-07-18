@@ -18,3 +18,6 @@ ok(1); # If we made it this far, we're ok.
 ok((@a = loadavg())  == 3);
 ok((@a = loadavg(2)) == 2);
 ok((@a = loadavg(1)) == 1);
+ok(LOADAVG_1MIN == 0);
+ok(LOADAVG_5MIN == 1);
+ok(LOADAVG_15MIN == 2);

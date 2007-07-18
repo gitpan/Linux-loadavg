@@ -9,3 +9,10 @@ Revision history for Perl extension Linux::loadavg.
 0.03  Tue Jul 17 18:00:00 2007
 	- Updated .pm file with right name and e-mail and clean up of
 	header file reference.
+
+0.04  Wed Jul 18 16:00:00 2007
+	- Updated .pm with larger example which includes autodetection
+	of Solaris and Linux.
+	- Added credits section to manpage
+	- Removed constants from .xs file. Now added as 'use constant' to .pm
+	- Test new constants being exported correctly
