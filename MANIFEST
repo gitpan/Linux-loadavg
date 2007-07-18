@@ -4,5 +4,5 @@ loadavg.xs
 Makefile.PL
 MANIFEST
 README
-test.pl
+t/test.t
 examples/osdetect.pl

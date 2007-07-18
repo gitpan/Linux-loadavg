@@ -16,3 +16,8 @@ Revision history for Perl extension Linux::loadavg.
 	- Added credits section to manpage
 	- Removed constants from .xs file. Now added as 'use constant' to .pm
 	- Test new constants being exported correctly
+
+0.05  Wed Jul 18 22:35:00 2007
+	- Add OS check to .pm file and die if not Linux
+	- Add OS check to 'make install'
+	- Move 'test.pl' to 't/test.t'

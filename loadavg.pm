@@ -32,7 +32,7 @@ our @EXPORT = qw(
    LOADAVG_5MIN
    LOADAVG_15MIN
 );
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use constant LOADAVG_1MIN => 0;
 use constant LOADAVG_5MIN => 1;
@@ -41,6 +41,9 @@ use constant LOADAVG_15MIN => 2;
 bootstrap Linux::loadavg $VERSION;
 
 # Preloaded methods go here.
+
+die "Wrong OS ('$^O' !~ m#(?i)linux#)" 
+  unless $^O =~ m#(?i)linux#;
 
 1;
 __END__
@@ -100,7 +103,7 @@ When called without an argument, the loadavg() function returns all three load a
 
 Niels van Dijke, E<lt>CpanDotOrgAtPerlboyDotNetE<gt>
 
-=head2 CREDITS
+=head1 CREDITS
 
 The Linux::loadavg is nearly one on one based on Solaris::loadavg. Therefore credits 
 should go to: Alexander Golomshtok (http://search.cpan.org/~agolomsh/)
