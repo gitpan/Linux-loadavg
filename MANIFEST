@@ -1,8 +1,9 @@
 Changes
+examples/osdetect.pl
 loadavg.pm
 loadavg.xs
 Makefile.PL
 MANIFEST
 README
+t/loadavg-benchmark.pl
 t/test.t
-examples/osdetect.pl

@@ -32,7 +32,7 @@ our @EXPORT = qw(
    LOADAVG_5MIN
    LOADAVG_15MIN
 );
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use constant LOADAVG_1MIN => 0;
 use constant LOADAVG_5MIN => 1;
@@ -68,7 +68,7 @@ elements of the output array. The system imposes a maximum of 3 samples, represe
 averages over the last 1, 5 and 15 minutes, respectively.
 
 The LOADAVG_1MIN, LOADAVG_5MIN, and LOADAVG_15MIN indices can be used to extract 
-the data from the appropriate element of the output array:
+the data from the appropriate element of the output array.
 
 When called without an argument, the loadavg() function returns all three load averages.
 

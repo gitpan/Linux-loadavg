@@ -21,3 +21,7 @@ Revision history for Perl extension Linux::loadavg.
 	- Add OS check to .pm file and die if not Linux
 	- Add OS check to 'make install'
 	- Move 'test.pl' to 't/test.t'
+
+0.06  Wed Jul 18 23:17:00 2007
+	- Add 't/loadavg-benchmark.pl' borrowed from BSD::getloadavg
+	- Updated README with pointers to original sources

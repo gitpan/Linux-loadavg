@@ -4,7 +4,7 @@
 #########################
 
 use Test;
-BEGIN { plan tests => 8, todo => [] };
+BEGIN { plan tests => 9, todo => [] };
 use Linux::loadavg;
 1 && ok(1); # If we made it this far, we're ok.
 
@@ -22,3 +22,4 @@ use Linux::loadavg;
 6 && ok(LOADAVG_1MIN == 0);
 7 && ok(LOADAVG_5MIN == 1);
 8 && ok(LOADAVG_15MIN == 2);
+9 && ok(sub { foreach my $i (0..1_000_000) { loadavg()} 1});

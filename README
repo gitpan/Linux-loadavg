@@ -1,16 +1,11 @@
-Linux::loadavg version 0.02
-============================
+Linux::loadavg
+==============
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+INTRODUCTION
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+This module is purely for Linux usage only. A similar module
+exist for Solaris; Solaris::loadaverage. Actually Linux::loadavg
+is a direct derive from Solaris::loadaverage. 
 
 INSTALLATION
 
@@ -27,7 +22,22 @@ DEPENDENCIES
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
 Copyright (C) 2007, Niels van Dijke, http://perlboy.net
+
+REMARKS
+
+The author is aware of the existence of another XS getloadavg module:
+BSD::getloadavg. This module however can not be swapped out in the way
+both Linux::loadavg and Solaris::loadavg can be done. See:
+'examples/osdetect.pl'. 
+
+CREDITS
+
+Credits should go to:
+
+Alexander Golomshtok (http://search.cpan.org/~agolomsh/)
+  Author of Solaris::loadavg
+
+Dan Kogai (http://search.cpan.org/~dankogai/)
+  Author of BSD:::getloadavg package and 'benchmark.pl'
 

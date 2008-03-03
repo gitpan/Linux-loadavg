@@ -1,3 +1,7 @@
+#ifndef __linux
+#error "No linux. Compile aborted."
+#endif
+
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
