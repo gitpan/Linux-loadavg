@@ -4,22 +4,19 @@
 #########################
 
 use Test;
-BEGIN { plan tests => 9, todo => [] };
+BEGIN { plan tests => 8, todo => [] };
 use Linux::loadavg;
 1 && ok(1); # If we made it this far, we're ok.
-
-# Expecting Linux. Fail on other OS'es
-2 && ok($^O =~ m#(?i)linux#);
 
 #########################
 
 # Insert your test code below, the Test module is use()ed here so read
 # its man page ( perldoc Test ) for help writing this test script.
 
-3 && ok((@a = loadavg())  == 3);
-4 && ok((@a = loadavg(2)) == 2);
-5 && ok((@a = loadavg(1)) == 1);
-6 && ok(LOADAVG_1MIN == 0);
-7 && ok(LOADAVG_5MIN == 1);
-8 && ok(LOADAVG_15MIN == 2);
-9 && ok(sub { foreach my $i (0..1_000_000) { loadavg()} 1});
+2 && ok((@a = loadavg())  == 3);
+3 && ok((@a = loadavg(2)) == 2);
+4 && ok((@a = loadavg(1)) == 1);
+5 && ok(LOADAVG_1MIN == 0);
+6 && ok(LOADAVG_5MIN == 1);
+7 && ok(LOADAVG_15MIN == 2);
+8 && ok(sub { foreach my $i (0..1_000_000) { loadavg()} 1});
