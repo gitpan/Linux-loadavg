@@ -7,3 +7,4 @@ MANIFEST			This list of files
 README
 t/loadavg-benchmark.pl
 t/test.t
+META.yml                                 Module meta-data (added by MakeMaker)

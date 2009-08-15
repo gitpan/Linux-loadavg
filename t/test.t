@@ -19,4 +19,4 @@ use Linux::loadavg;
 5 && ok(LOADAVG_1MIN == 0);
 6 && ok(LOADAVG_5MIN == 1);
 7 && ok(LOADAVG_15MIN == 2);
-8 && ok(sub { foreach my $i (0..1_000_000) { loadavg()} 1});
+8 && ok(sub { foreach my $i (0..1_234_567) { loadavg()} 1});
