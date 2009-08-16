@@ -14,7 +14,8 @@ Revision history for Perl extension Linux::loadavg.
 	- Updated .pm with larger example which includes autodetection
 	of Solaris and Linux.
 	- Added credits section to manpage
-	- Removed constants from .xs file. Now added as 'use constant' to .pm
+	- Removed constants from .xs file. Now added as 'use constant' 
+          to .pm
 	- Test new constants being exported correctly
 
 0.05  Wed Jul 18 22:35:00 2007
@@ -31,3 +32,6 @@ Revision history for Perl extension Linux::loadavg.
 
 0.08  Sat Aug 16 00:07:00 2009
 	- Rewritten XS module. Removed memory leak
+
+0.09  Sun Aug 17 10:33:00 2009
+        - Removed C++ style commented out XS code

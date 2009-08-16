@@ -32,7 +32,7 @@ our @EXPORT = qw(
    LOADAVG_5MIN
    LOADAVG_15MIN
 );
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use constant LOADAVG_1MIN => 0;
 use constant LOADAVG_5MIN => 1;
